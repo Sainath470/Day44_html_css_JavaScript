@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registering User</title>
+    <link rel="stylesheet" href="../css/mobileRegister.css"
+</head>
+
+<body>
+     <form action="" onsubmit="handleSubmit()">
+        <header class="headerContainer">
+            <h1>Mobile HTML Input Fields</header></h1>
+        <div>
+            <label for="text">Enter Name: </label>
+            <input type="text" id="text" name="text" placeholder="Enter your Name">
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
+            <label for="pwd">Password </label>
+            <input type="password" name="pwd" id="pwd" placeholder="Enter the password" required>
+            <error-output class="pwd-error" for="pwd"></error-output>
+        </div>
+        <div>
+            <label for="email">Email </label>
+            <input type="email" name="pwd" id="email" placeholder="Enter the email">
+            <error-output class="email-error" for="email"></error-output>
+        </div>
+        <div>
+            <label for="url">Url </label>
+            <input type="url" name="url" id="url" placeholder="Enter the Url">
+        </div>
+        <div>
+            <label for="number">Number</label>
+            <input type="number" name="number" id="number" placeholder="Enter the number">
+        </div>
+        <div>
+            <label for="tel">Mobile no.</label>
+            <input type="tel" name="tel" id="tel" placeholder="Enter the tel">
+            <error-output class="tel-error" for="tel"></error-output>
+        </div>
+        <div>
+            <label for="Search">Search</label>
+            <input type="Search" name="Search" id="Search" placeholder="Enter the Search">
+        </div>
+        
+        <div>
+            <button type="submit" onclick="handleSubmit">Submit</button>
+        </div>
+    </form>
+    <script>
+        // UC1---Checking Regex Expression for Name
+        const text = document.querySelector("#text");
+        const textError = document.querySelector('.text-error');
+        text.addEventListener('input', function() {
+            let nameRegex = RegExp('^[A-z]{1}[a-z]{2,}$')
+            if(nameRegex.test(text.value)){
+                textError.textContent = "";
+            }else{
+                textError.textContent = "Name is incorrect"
+            }
+        });
+
+        //UC2---Checking Regex Expression for email
+        const email = document.querySelector("#email");
+        const emailError = document.querySelector('.email-error');
+        email.addEventListener('input', function() {
+            let emailRegex = RegExp('^[A-Za-z]+([.+-]?[a-z A-z0-9]+)?@[a-zA-z0-9]{1,6}\\.[a-zA-Z]{2,6},?([.][a-zA-z+,]{2,6})?$');
+            if(emailRegex.test(email.value)){
+                emailError.textContent = "";
+            }else{
+                emailError.textContent = "Email is incorrect"
+            }
+        });
+
+        //UC3--Checking Regex Expression for telephone number
+        const tel = document.querySelector("#tel");
+        const telError = document.querySelector('.tel-error');
+        tel.addEventListener('input', function() {
+            let telRegex = RegExp('^[91]{2}\\s[0-9]{10}');
+            if(telRegex.test(tel.value)){
+                telError.textContent = "";
+            }else{
+                telError.textContent = "Incorrect mobile no."
+            }
+        });
+
+        //UC4---Checking Regex Expression and password Validation 8 rules passed.
+        const pwd = document.querySelector("#pwd");
+        const pwdError = document.querySelector('.pwd-error');
+        pwd.addEventListener('input', function() {
+            let pwdRegex = RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()]).{8,}$');   
+            if(pwdRegex.test(pwd.value)){
+                pwdError.textContent = "";
+            }else{
+                pwdError.textContent = "Incorrect password."
+            }
+        });
+
+        const salary = document.querySelector('#salary');
+        const output = document.querySelector('.salary-output');
+        output.textContent = salary.value;
+        salary.addEventListener('input', function(){
+            output.textContent = salary.value;
+        })
+
+        function handleSubmit(){
+            alert('thanks');
+        }
+    </script>
+</body>  
+
+</html>

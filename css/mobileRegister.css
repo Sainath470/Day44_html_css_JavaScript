@@ -1,0 +1,62 @@
+
+html, input {
+font-family: sans-serif;
+}
+
+body {
+width: 90%;
+max-width: 500px;
+margin: 0 auto;
+}
+
+header{
+    background-color: red;
+    padding-left: 1px;
+    min-width:320px;
+    max-width: 768px;
+}
+
+form {
+margin-top: 20px;
+}
+
+div{
+margin-bottom: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+label, input {
+font-size: 14px;
+line-height: 1.5
+}
+
+button{
+    background-color:rgba(78, 182, 177, 0.287);
+    font-size: 14px;
+    line-height: 1.5
+}
+
+label {
+text-align: right;
+width: 30%;
+margin-right: 2%;
+}
+
+input {
+flex: auto;
+}
+
+error-output{
+        color: red;
+        font-size: 12px;
+        font-style: italic;
+}
+
+button {
+width: 70%;
+margin: 0 auto;
+background-color: lightgreen;
+}
+
